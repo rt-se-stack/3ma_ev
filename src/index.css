@@ -1,0 +1,20 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #1a2332;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Mahjong tile emoji rendering */
+.tile-emoji {
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+  line-height: 1;
+}
