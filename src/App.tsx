@@ -38,15 +38,6 @@ export default function App() {
     [board.hand, board.tsumoTile],
   );
   const counts = useMemo(() => toCounts(allTiles), [allTiles]);
-  const remaining = useMemo(() =>
-    calcRemainingFromBoard(
-      board.hand, board.tsumoTile,
-      board.discard1, board.discard2,
-      board.doraIndicators, board.kitaPulled,
-      board.selfDiscards,
-    ),
-    [board],
-  );
   // 山牌残り枚数 = 初期山牌(55) − 全員の捨て牌枚数 − 1(現在のツモ)
   // 内訳: 108枚 − 王牌14枚 − 3人×13枚配牌 = 55枚
   // 各自の捨て牌枚数 = 過去にツモった回数、+1 は今回のツモ分
@@ -99,6 +90,7 @@ export default function App() {
       return { ...prev, phase: 'analyzed', analysis };
     });
   }, []);
+
 
   const handleReset = useCallback(() => {
     setState(prev => ({
